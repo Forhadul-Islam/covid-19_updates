@@ -1,0 +1,60 @@
+.countryName {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #4a4948;
+    margin: 25px;
+}
+/* .countryData {
+    background-image: linear-gradient(45deg, #21b7964f, #e0eef5c2);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #434848;
+    font-family: sans-serif;
+    margin: 10px;
+    border-radius: 3px;
+    border-left: 5px solid #21b796d9;
+} */
+
+.countryData {
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: #3e3b3b;
+    font-family: sans-serif;
+    /* background-image: linear-gradient(45deg, #8a2959, #e90827c7); */
+    font-weight: 600;
+    border: 1px solid #15b7d2b8;
+    box-shadow: 1px 2px 7px 0px;
+    padding: 8px;
+    transition: .2s;
+}
+.countryData h4 {
+    font-size: 1.5rem;
+     color: rgb(96, 102, 105);
+}
+.countryData h3 {
+    font-size: 1.5rem;
+     color: rgb(65, 153, 187);
+}
+
+.dataArea{
+    display: flex;
+    justify-content: center;
+}
+
+@media all and (max-width:790px){
+    .countryData {
+        margin: 5px;
+    }
+    .countryData {
+        font-size: 3.5rem;
+    }
+}

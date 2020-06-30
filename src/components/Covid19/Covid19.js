@@ -2,13 +2,20 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import './Covid19.css';
 import Covid19DataTable from './Covid19DataTable';
+import Navbar from '../Navbar/Navbar';
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+
 
 const Covid19 = () => {
     const [covidData, setCovidData] = useState(null);
     const [bangladeshCases, setBangladeshCases] = useState(null);
+    const [world, setWorld] = useState(null);
     if (covidData) {
         // console.log(covidData)
         // console.log(bangladeshCases);
+        // console.log(world);
 
     }
     useEffect(() => {
@@ -16,12 +23,20 @@ const Covid19 = () => {
             .then(res => res.json())
             .then(data => {
                 setCovidData(data);
-                const bangladesh = data.find(data => data.country.toLowerCase() === 'bangladesh')
+                const bangladesh = data.find(data => data.country.toLowerCase() === 'bangladesh');
+                const worldCases = data.find(data => data.country.toLowerCase() === 'world');
                 setBangladeshCases(bangladesh);
+                setWorld(worldCases);
             })
     }, [])
+
+    //api for individual country
+    //https://coronavirus-19-api.herokuapp.com/countries/india
     return (
         <div>
+            <div>
+                <Navbar></Navbar>
+            </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <h3 className="heading">COVID- 19 Daily updates</h3>
             </div>
@@ -29,15 +44,44 @@ const Covid19 = () => {
                 <div className="world row">
                     <div className="dataCart col-md-3">
                         <h4>Total Cases</h4>
-                        <h4 style={{ fontSize: '2rem' }}>{covidData && covidData[0].cases}</h4>
+                        {
+                            world ?
+                                <h4 style={{ fontSize: '2rem' }}>{world.cases}</h4>
+
+                                : <Loader
+                                    type="Bars"
+                                    color="#15b7d2b8"
+                                    height={30}
+                                    width={30}
+
+                                />
+                        }
                     </div>
                     <div className="dataCart col-md-3">
-                        <h4>Active Cases</h4>
-                        <h4 style={{ fontSize: '2rem' }}>{covidData && covidData[0].active}</h4>
+                        <h4>Today's Cases</h4>
+                        {
+                            world ? <h4 style={{ fontSize: '2rem' }}>{world.todayCases}</h4>
+                                : <Loader
+                                    type="Bars"
+                                    color="#15b7d2b8"
+                                    height={30}
+                                    width={30}
+
+                                />
+                        }
                     </div>
                     <div className="dataCart col-md-3">
-                        <h4>Total Death</h4>
-                        <h4 style={{ fontSize: '2rem' }}>{covidData && covidData[0].deaths}</h4>
+                        <h4>Today's Deaths</h4>
+                        {
+                            world ? <h4 style={{ fontSize: '2rem' }}>{world.todayDeaths}</h4>
+                                : <Loader
+                                    type="Bars"
+                                    color="#15b7d2b8"
+                                    height={30}
+                                    width={30}
+
+                                />
+                        }
                     </div>
                 </div>
             </div>
@@ -48,15 +92,42 @@ const Covid19 = () => {
                 <div className="world row">
                     <div className="dataCart col-md-3">
                         <h4>Total Active Cases</h4>
-                        <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases && bangladeshCases.active}</h4>
+                        {
+                            bangladeshCases ? <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases.active}</h4>
+                                : <Loader
+                                    type="Bars"
+                                    color="#15b7d2b8"
+                                    height={30}
+                                    width={30}
+
+                                />
+                        }
                     </div>
                     <div className="dataCart col-md-3">
                         <h4>Today's Cases</h4>
-                        <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases && bangladeshCases.todayCases}</h4>
+                        {
+                            bangladeshCases ? <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases.todayCases}</h4>
+                                : <Loader
+                                    type="Bars"
+                                    color="#15b7d2b8"
+                                    height={30}
+                                    width={30}
+
+                                />
+                        }
                     </div>
                     <div className="dataCart col-md-3">
                         <h4>Today's Deaths</h4>
-                        <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases && bangladeshCases.todayDeaths}</h4>
+                        {
+                            bangladeshCases ? <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases.todayDeaths}</h4>
+                                : <Loader
+                                    type="Bars"
+                                    color="#15b7d2b8"
+                                    height={30}
+                                    width={30}
+
+                                />
+                        }
                     </div>
                 </div>
             </div>

@@ -1,0 +1,17 @@
+.navLinks {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: #373939;
+}
+.navLinks a {
+    text-decoration: none;
+    color: white;
+    padding: 1.5px 15px;
+    font-size: 18px;
+    transition: .5s;
+}
+
+.navLinks a:hover {
+    background-color: #129678;
+}

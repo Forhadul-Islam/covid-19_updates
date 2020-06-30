@@ -8,17 +8,19 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom';
+import Badge from 'react-bootstrap/Badge';
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 600,
     },
 });
 
 const Covid19DataTable = (props) => {
     const classes = useStyles();
     const covidData = props.covidData;
-    covidData.shift();
+    // covidData.shift();
 
     return (
         <div>
@@ -38,11 +40,17 @@ const Covid19DataTable = (props) => {
                     </TableHead>
                     <TableBody>
                         {covidData && covidData.map((data) => (
-                            <TableRow onClick={() => console.log(data)} key={data.country}>
+
+                            <TableRow >
                                 <TableCell align="center">
                                     {covidData.indexOf(data) + 1}
                                 </TableCell>
-                                <TableCell title="Country" align="center">{data.country}</TableCell>
+                                <TableCell title="Country" align="right">
+                                    <Badge style={{ fontSize: '15px' }} variant="light">{data.country}</Badge>
+                                    <Link to={`/country/${data.country}`}>
+                                        <Badge style={{ fontSize: '14px' }} variant="warning">View</Badge>
+                                    </Link>
+                                </TableCell>
                                 <TableCell title="Total Cases" align="center">{data.cases}</TableCell>
                                 <TableCell title="Total active cases" align="center">{data.active}</TableCell>
                                 <TableCell title="Total deaths" align="center">{data.deaths}</TableCell>
@@ -63,6 +71,7 @@ const Covid19DataTable = (props) => {
                                 <TableCell align="center">{data.totalTests}</TableCell>
 
                             </TableRow>
+
                         ))}
                     </TableBody>
                 </Table>
