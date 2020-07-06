@@ -10,9 +10,11 @@ import {
   useParams
 } from "react-router-dom";
 import CountryDetail from './components/CountryDetail/CountryDetail';
-import Blogs from './components/Blogs/Blogs';
 import News from './components/News/News';
 import Doctor from './components/Doctor/Doctor';
+import NotFound from './components/NotFound/NotFound';
+import CovidDataGraph from './components/CovidDataGraph/CovidDataGraph';
+import Info from './components/Info/Info';
 
 
 function App() {
@@ -26,17 +28,23 @@ function App() {
           <Route path='/home'>
             <Covid19></Covid19>
           </Route>
+          <Route path='/graph'>
+            <CovidDataGraph></CovidDataGraph>
+          </Route>
           <Route path="/country/:countryName">
             <CountryDetail></CountryDetail>
           </Route>
-          <Route path="/blog">
-            <Blogs></Blogs>
+          <Route path="/info">
+            <Info></Info>
           </Route>
           <Route path="/news">
             <News></News>
           </Route>
           <Route path="/doctor">
             <Doctor></Doctor>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
       </div>

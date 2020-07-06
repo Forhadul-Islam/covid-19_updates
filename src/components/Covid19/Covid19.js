@@ -30,6 +30,16 @@ const Covid19 = () => {
             })
     }, [])
 
+    const loading = () => {
+        return <Loader
+            type="Bars"
+            color="#15b7d2b8"
+            height={30}
+            width={30}
+
+        />
+    }
+
     //api for individual country
     //https://coronavirus-19-api.herokuapp.com/countries/india
     return (
@@ -38,7 +48,7 @@ const Covid19 = () => {
                 <Navbar></Navbar>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <h3 className="heading">COVID- 19 Daily updates</h3>
+                <h3 className="heading">COVID-19 in World</h3>
             </div>
             <div>
                 <div className="world row">
@@ -48,85 +58,49 @@ const Covid19 = () => {
                             world ?
                                 <h4 style={{ fontSize: '2rem' }}>{world.cases}</h4>
 
-                                : <Loader
-                                    type="Bars"
-                                    color="#15b7d2b8"
-                                    height={30}
-                                    width={30}
-
-                                />
+                                : loading()
                         }
                     </div>
                     <div className="dataCart col-md-3">
                         <h4>Today's Cases</h4>
                         {
                             world ? <h4 style={{ fontSize: '2rem' }}>{world.todayCases}</h4>
-                                : <Loader
-                                    type="Bars"
-                                    color="#15b7d2b8"
-                                    height={30}
-                                    width={30}
-
-                                />
+                                : loading()
                         }
                     </div>
                     <div className="dataCart col-md-3">
                         <h4>Today's Deaths</h4>
                         {
                             world ? <h4 style={{ fontSize: '2rem' }}>{world.todayDeaths}</h4>
-                                : <Loader
-                                    type="Bars"
-                                    color="#15b7d2b8"
-                                    height={30}
-                                    width={30}
-
-                                />
+                                : loading()
                         }
                     </div>
                 </div>
             </div>
             <div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <h3 className="bangladeshHeading">Bangladesh Covid Updates</h3>
+                    <h3 className="bangladeshHeading">COVID-19 in Bangladesh</h3>
                 </div>
                 <div className="world row">
                     <div className="dataCart col-md-3">
                         <h4>Total Active Cases</h4>
                         {
                             bangladeshCases ? <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases.active}</h4>
-                                : <Loader
-                                    type="Bars"
-                                    color="#15b7d2b8"
-                                    height={30}
-                                    width={30}
-
-                                />
+                                : loading()
                         }
                     </div>
                     <div className="dataCart col-md-3">
                         <h4>Today's Cases</h4>
                         {
                             bangladeshCases ? <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases.todayCases}</h4>
-                                : <Loader
-                                    type="Bars"
-                                    color="#15b7d2b8"
-                                    height={30}
-                                    width={30}
-
-                                />
+                                : loading()
                         }
                     </div>
                     <div className="dataCart col-md-3">
                         <h4>Today's Deaths</h4>
                         {
                             bangladeshCases ? <h4 style={{ fontSize: '2rem', color: 'rgb(35, 154, 200)' }}>{bangladeshCases.todayDeaths}</h4>
-                                : <Loader
-                                    type="Bars"
-                                    color="#15b7d2b8"
-                                    height={30}
-                                    width={30}
-
-                                />
+                                : loading()
                         }
                     </div>
                 </div>

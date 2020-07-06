@@ -40,7 +40,6 @@ const Covid19DataTable = (props) => {
                     </TableHead>
                     <TableBody>
                         {covidData && covidData.map((data) => (
-
                             <TableRow >
                                 <TableCell align="center">
                                     {covidData.indexOf(data) + 1}
