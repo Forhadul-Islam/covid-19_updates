@@ -1,0 +1,12 @@
+.infoContent h3{
+    color: #5a5d5f;
+    font-weight: 700;
+}
+.infoContent {
+    margin: 0 7px;
+    text-align: justify;
+}
+
+.infoContent p {
+    color: #403f3d;
+}

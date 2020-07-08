@@ -12,12 +12,6 @@ const Covid19 = () => {
     const [covidData, setCovidData] = useState(null);
     const [bangladeshCases, setBangladeshCases] = useState(null);
     const [world, setWorld] = useState(null);
-    if (covidData) {
-        // console.log(covidData)
-        // console.log(bangladeshCases);
-        // console.log(world);
-
-    }
     useEffect(() => {
         fetch('https://coronavirus-19-api.herokuapp.com/countries')
             .then(res => res.json())
@@ -39,9 +33,6 @@ const Covid19 = () => {
 
         />
     }
-
-    //api for individual country
-    //https://coronavirus-19-api.herokuapp.com/countries/india
     return (
         <div>
             <div>
