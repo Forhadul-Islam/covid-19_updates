@@ -16,7 +16,7 @@ const CountryDetail = () => {
         fetch('https://corona-bd.herokuapp.com/district')
             .then(res => res.json())
             .then(data => {
-                if (location.pathname === "/country/bangladesh" || "/country/Bangladesh") {
+                if (location.pathname === "/country/Bangladesh") {
                     setBangladeshDetail(data);
                 }
             })
@@ -39,11 +39,12 @@ const CountryDetail = () => {
     }, [countryName])
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: 'center' }}>
             <Navbar></Navbar>
             <CountryDetailCurrentStatus
                 countryData={countryData}
             ></CountryDetailCurrentStatus>
+
             {
                 bangladeshDetail && <BangladeshCovidCases
                     key={bangladeshDetail.data.name}

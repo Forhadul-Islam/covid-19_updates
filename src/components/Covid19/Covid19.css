@@ -31,6 +31,7 @@
     border-radius: 6px;
     border: 1px solid gray;
     color: white;
+    text-align: center;
 }
 .bangladeshHeading {
     margin: 5px;
@@ -41,4 +42,14 @@
     border: 1px solid #b2e2e7;
     color: #27a7b1;
     box-shadow: 1px 3px 3px 0px;
+    transition: .3s;
+    cursor: pointer;
+    text-align: center;
+    
 }
+.bangladeshHeading:hover {
+    background-color: #ffffff;
+    color: rgb(212, 124, 186);
+    box-shadow: none;
+}
+

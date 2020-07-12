@@ -5,6 +5,9 @@ import Covid19DataTable from './Covid19DataTable';
 import Navbar from '../Navbar/Navbar';
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Link } from 'react-router-dom';
+
+
 
 
 
@@ -70,7 +73,9 @@ const Covid19 = () => {
             </div>
             <div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <h3 className="bangladeshHeading">COVID-19 in Bangladesh</h3>
+                    <Link style={{ textDecoration: 'none' }} to='/country/Bangladesh'>
+                        <h3 className="bangladeshHeading">COVID-19 in Bangladesh</h3>
+                    </Link>
                 </div>
                 <div className="world row">
                     <div className="dataCart col-md-3">

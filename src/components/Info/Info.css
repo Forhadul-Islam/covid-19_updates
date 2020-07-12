@@ -2,6 +2,9 @@
     color: #5a5d5f;
     font-weight: 700;
 }
+.covidImg{
+    height: 360px;
+}
 .infoContent {
     margin: 0 7px;
     text-align: justify;
@@ -9,4 +12,18 @@
 
 .infoContent p {
     color: #403f3d;
+}
+
+@media all and (max-width: 700px){
+    #info{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+
+    .covidImg{
+        height: 250px;
+    }
 }

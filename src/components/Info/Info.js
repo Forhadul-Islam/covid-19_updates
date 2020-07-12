@@ -7,9 +7,9 @@ const Info = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div>
+            <div id="info">
                 <div style={{ float: "left" }} >
-                    <img style={{ height: "400px" }} src={covidImage} alt="covid img" />
+                    <img className="covidImg" src={covidImage} alt="covid img" />
                 </div>
                 <div className="infoContent">
                     <div>
