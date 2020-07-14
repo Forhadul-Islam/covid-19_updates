@@ -44,6 +44,18 @@
     font-size: 1.5rem;
      color: rgb(65, 153, 187);
 }
+.counts {
+    object-fit: contain;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 7px;
+    margin: 4px;
+    border-bottom: 1px solid #d8e9ee;
+}
 
 .dataArea{
     display: flex;

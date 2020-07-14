@@ -15,6 +15,8 @@ const Covid19 = () => {
     const [covidData, setCovidData] = useState(null);
     const [bangladeshCases, setBangladeshCases] = useState(null);
     const [world, setWorld] = useState(null);
+    const [search, setSearch] = useState("");
+    const [searchResult, setSearchResult] = useState(null);
     useEffect(() => {
         fetch('https://coronavirus-19-api.herokuapp.com/countries')
             .then(res => res.json())
@@ -24,9 +26,22 @@ const Covid19 = () => {
                 const worldCases = data.find(data => data.country.toLowerCase() === 'world');
                 setBangladeshCases(bangladesh);
                 setWorld(worldCases);
+
             })
     }, [])
+    console.log(searchResult);
 
+
+    const searchCountry = (e) => {
+        const countryName = e.target.value;
+        setSearch(countryName.charAt(0).toUpperCase() + countryName.slice(1));
+
+    }
+
+    const handleSearch = () => {
+        const searchedCountry = covidData.find(data => data.country.toLowerCase() === search.toLowerCase());
+        setSearchResult(searchedCountry);
+    }
     const loading = () => {
         return <Loader
             type="Bars"
@@ -100,6 +115,25 @@ const Covid19 = () => {
                         }
                     </div>
                 </div>
+            </div>
+            <div>
+                <p className="searchBarArea">
+                    <input
+                        onChange={searchCountry}
+                        placeholder="Write the country name with correct spelling"
+                        className="searchBar"
+                        type="text"
+                        name="search"
+                        value={search}
+                        id=""
+                    />
+                    <Link style={{ textDecoration: 'none' }} to={search && "/country/" + search}>
+                        <strong onClick={handleSearch} className="searchBtn">
+                            Search
+                    </strong>
+                    </Link>
+
+                </p>
             </div>
             <div>
                 {
